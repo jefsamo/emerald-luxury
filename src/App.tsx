@@ -1,6 +1,5 @@
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
-import { createStyles, rem } from "@mantine/core";
 import "./App.css";
 import FAQ from "./FAQ";
 import Home from "./Home";

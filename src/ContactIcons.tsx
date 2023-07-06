@@ -6,13 +6,7 @@ import {
   Box,
   Stack,
 } from "@mantine/core";
-import {
-  IconSun,
-  IconPhone,
-  IconMapPin,
-  IconAt,
-  IconBrandFacebook,
-} from "@tabler/icons-react";
+import { IconSun, IconAt, IconBrandFacebook } from "@tabler/icons-react";
 
 type ContactIconVariant = "white" | "gradient";
 

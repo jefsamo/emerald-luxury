@@ -2,7 +2,6 @@ import {
   Paper,
   Text,
   TextInput,
-  Textarea,
   Button,
   Group,
   SimpleGrid,
@@ -12,7 +11,6 @@ import {
 import { ContactIconsList } from "./ContactIcons";
 import bg from "./bg.svg";
 import { useState } from "react";
-import axios from "axios";
 
 const useStyles = createStyles((theme) => {
   const BREAKPOINT = theme.fn.smallerThan("sm");
@@ -115,24 +113,9 @@ export default function GetInTouch() {
   const [city, setCity] = useState("");
   const [province, setProvince] = useState("");
 
-  const Email = window.Email;
-  const handleOrder = (e) => {
+  const handleOrder = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     console.log(name, email, streetAddress, city, province);
-    const config = {
-      Username: "shopman@yopmail.com",
-      Password: "0974E68C84B5F71E82B8CB254C34C753234B",
-      Host: "smtp.elasticemail.com",
-      Port: 2525,
-      To: `shopman@yopmail.com`,
-      From: `${email}`,
-      Subject: `Order Confirmation!`,
-      Body: `Street Address: ${streetAddress}\n City: ${city} `,
-    };
-
-    if (Email) {
-      Email?.Send(config).then(() => alert("Order confirmed!"));
-    }
   };
 
   return (

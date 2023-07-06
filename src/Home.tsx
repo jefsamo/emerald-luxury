@@ -1,22 +1,12 @@
 import SS from "./assets/ss.png";
-import {
-  Card,
-  Image,
-  Text,
-  Badge,
-  Button,
-  Group,
-  createStyles,
-  rem,
-  Center,
-} from "@mantine/core";
+import { Card, Image, Text, Badge, Button, Group, Center } from "@mantine/core";
 import "./App.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const navigate = useNavigate();
 
-  function handleClick(event) {
+  function handleClick() {
     navigate("/order");
   }
   return (

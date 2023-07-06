@@ -1,17 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
-import { MantineProvider, ColorSchemeProvider } from "@mantine/core";
-import Modal from "./Modal.tsx";
+import { MantineProvider } from "@mantine/core";
 
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <MantineProvider withGlobalStyles withNormalizeCSS>
-      <ColorSchemeProvider>
-        <App />
-      </ColorSchemeProvider>
+      <App />
     </MantineProvider>
   </React.StrictMode>
 );
