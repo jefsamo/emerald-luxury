@@ -34,6 +34,9 @@ function Home() {
               On Sale
             </Badge>
           </Group>
+          <Group position="apart" mb="xs">
+            <Text weight={300}>$100</Text>
+          </Group>
 
           <Text size="sm" color="dimmed">
             With Fjord Tours you can explore more of the magical fjord

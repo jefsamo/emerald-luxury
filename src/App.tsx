@@ -4,11 +4,14 @@ import "./App.css";
 import FAQ from "./FAQ";
 import Home from "./Home";
 import Form from "./play";
+import { SocialButton } from "./Whatsapp";
 
 function App() {
   const Layout = () => {
     return (
       <>
+        <SocialButton />
+        <br />
         <Outlet />
         <FAQ />
       </>
