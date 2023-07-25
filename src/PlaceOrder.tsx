@@ -116,21 +116,19 @@ export default function PlaceOrder() {
   const [city, setCity] = useState("");
   const [province, setProvince] = useState("");
 
-  const form = useRef();
+  const { VITE_SERVICE_ID, VITE_TEMPLATE_ID, VITE_ID } = import.meta.env;
+  console.log(VITE_SERVICE_ID, VITE_TEMPLATE_ID, VITE_ID);
+
+  const form = useRef<HTMLFormElement | null>(null);
 
   const notify = () => toast("Order placed successfully");
   const sendEmail = (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
     emailjs
-      .sendForm(
-        "service_nxlku4i",
-        "template_rgpy5yi",
-        form.current,
-        "loeZBK52gD0d5eiIK"
-      )
+      .sendForm(VITE_SERVICE_ID, VITE_TEMPLATE_ID, form.current, VITE_ID)
       .then(
-        (result) => {
+        () => {
           notify();
           setName("");
           setEmail("");
