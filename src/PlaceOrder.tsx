@@ -10,7 +10,9 @@ import {
 } from "@mantine/core";
 import { ContactIconsList } from "./ContactIcons";
 import bg from "./bg.svg";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+import toast, { Toaster } from "react-hot-toast";
 
 const useStyles = createStyles((theme) => {
   const BREAKPOINT = theme.fn.smallerThan("sm");
@@ -105,21 +107,47 @@ const useStyles = createStyles((theme) => {
   };
 });
 
-export default function GetInTouch() {
+export default function PlaceOrder() {
   const { classes } = useStyles();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [streetAddress, setStreetAddress] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [city, setCity] = useState("");
   const [province, setProvince] = useState("");
 
-  const handleOrder = (e: { preventDefault: () => void }) => {
+  const form = useRef();
+
+  const notify = () => toast("Order placed successfully");
+  const sendEmail = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    console.log(name, email, streetAddress, city, province);
+
+    emailjs
+      .sendForm(
+        "service_nxlku4i",
+        "template_rgpy5yi",
+        form.current,
+        "loeZBK52gD0d5eiIK"
+      )
+      .then(
+        (result) => {
+          notify();
+          setName("");
+          setEmail("");
+          setStreetAddress("");
+          setPhoneNumber("");
+          setCity("");
+          setProvince("");
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   };
 
   return (
     <Paper shadow="md" radius="lg">
+      <Toaster />
       <div className={classes.wrapper}>
         <div className={classes.contacts}>
           <Text fz="lg" fw={700} className={classes.title} c="#fff">
@@ -129,13 +157,7 @@ export default function GetInTouch() {
           <ContactIconsList variant="white" />
         </div>
 
-        <form
-          className={classes.form}
-          // onSubmit={(event) => event.preventDefault()}
-          // onSubmit={handleOrder}
-          // action="https://formsubmit.co/el/powuhe"
-          method="POST"
-        >
+        <form className={classes.form} ref={form} onSubmit={sendEmail}>
           <Text fz="lg" fw={700} className={classes.title}>
             Fill your delivery details
           </Text>
@@ -156,7 +178,7 @@ export default function GetInTouch() {
               <TextInput
                 label="Email"
                 placeholder="Email"
-                name="email"
+                name="from_email"
                 required
                 style={{
                   textAlign: "left",
@@ -167,13 +189,24 @@ export default function GetInTouch() {
               <TextInput
                 label="Street Address"
                 placeholder="Street Address"
-                name="street"
+                name="street_address"
                 required
                 style={{
                   textAlign: "left",
                 }}
                 value={streetAddress}
                 onChange={(e) => setStreetAddress(e.target.value)}
+              />
+              <TextInput
+                label="Phone Number"
+                placeholder="Phone Number"
+                name="phone_number"
+                required
+                style={{
+                  textAlign: "left",
+                }}
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
               />
               <TextInput
                 label="City"
@@ -200,11 +233,7 @@ export default function GetInTouch() {
             </SimpleGrid>
 
             <Group position="right" mt="md">
-              <Button
-                type="submit"
-                className={classes.control}
-                onClick={handleOrder}
-              >
+              <Button type="submit" className={classes.control}>
                 Order Now
               </Button>
             </Group>

@@ -3,17 +3,17 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import "./App.css";
 import FAQ from "./FAQ";
 import Home from "./Home";
-import Form from "./play";
+import PlaceOrder from "./PlaceOrder";
 import { SocialButton } from "./Whatsapp";
 
 function App() {
   const Layout = () => {
     return (
       <>
-        <SocialButton />
         <br />
         <Outlet />
         <FAQ />
+        <SocialButton />
       </>
     );
   };
@@ -29,7 +29,7 @@ function App() {
         },
         {
           path: "/order",
-          element: <Form />,
+          element: <PlaceOrder />,
         },
       ],
     },

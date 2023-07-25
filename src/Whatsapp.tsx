@@ -1,9 +1,12 @@
-import { Group, Button, rem } from "@mantine/core";
+import { Group, Button, rem, Text } from "@mantine/core";
 import { IconBrandWhatsapp } from "@tabler/icons-react";
 
 export function SocialButton() {
   return (
     <Group position="center">
+      <Text size="xl" color="dimmed">
+        For further enquiries
+      </Text>
       <Button
         component="a"
         target="_blank"
@@ -17,9 +20,10 @@ export function SocialButton() {
             height: rem(42),
             paddingLeft: rem(20),
             paddingRight: rem(20),
-            // "&:not([data-disabled])": theme.fn.hover({
-            //   backgroundColor: theme.fn.darken("#00acee", 0.05),
-            // }),
+            "&:not([data-disabled])": theme.fn.hover({
+              backgroundColor: theme.fn.darken("#fff", 0.05),
+              color: "#25D366",
+            }),
           },
 
           leftIcon: {
