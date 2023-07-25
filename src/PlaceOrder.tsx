@@ -120,13 +120,14 @@ export default function PlaceOrder() {
   console.log(VITE_SERVICE_ID, VITE_TEMPLATE_ID, VITE_ID);
 
   const form = useRef<HTMLFormElement | null>(null);
+  console.log(typeof form);
 
   const notify = () => toast("Order placed successfully");
   const sendEmail = (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
     emailjs
-      .sendForm(VITE_SERVICE_ID, VITE_TEMPLATE_ID, form.current, VITE_ID)
+      .sendForm(VITE_SERVICE_ID, VITE_TEMPLATE_ID, form.current!, VITE_ID)
       .then(
         () => {
           notify();
