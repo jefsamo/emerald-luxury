@@ -1,7 +1,7 @@
-import SS from "./assets/ss.png";
+import { useNavigate } from "react-router-dom";
+import SS from "./assets/watch.jpeg";
 import { Card, Image, Text, Badge, Button, Group, Center } from "@mantine/core";
 import "./App.css";
-import { useNavigate } from "react-router-dom";
 
 function Home() {
   const navigate = useNavigate();
