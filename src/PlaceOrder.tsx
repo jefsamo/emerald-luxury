@@ -118,10 +118,8 @@ export default function PlaceOrder() {
   const [province, setProvince] = useState("");
 
   const { VITE_SERVICE_ID, VITE_TEMPLATE_ID, VITE_ID } = import.meta.env;
-  console.log(VITE_SERVICE_ID, VITE_TEMPLATE_ID, VITE_ID);
 
   const form = useRef<HTMLFormElement | null>(null);
-  console.log(typeof form);
 
   const notify = () => toast("Order placed successfully");
   const sendEmail = (e: { preventDefault: () => void }) => {
