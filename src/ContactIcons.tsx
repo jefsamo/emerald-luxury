@@ -95,8 +95,8 @@ interface ContactIconsListProps {
 }
 
 const MOCKDATA = [
-  { title: "Email", description: "EmeraldLuxury@gmail.com", icon: IconAt },
-  { title: "Facebook", description: "Emerald Luxury", icon: IconBrandFacebook },
+  { title: "Email", description: "voicefounders@gmail.com", icon: IconAt },
+  { title: "Facebook", description: "Founders Store", icon: IconBrandFacebook },
   // { title: "Address", description: "844 Morris Park avenue", icon: IconMapPin },
   { title: "Working hours", description: "8 a.m. – 11 p.m.", icon: IconSun },
 ];

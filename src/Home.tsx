@@ -29,13 +29,16 @@ function Home() {
           </Card.Section>
 
           <Group position="apart" mt="md" mb="xs">
-            <Text weight={500}>Norway Fjord Adventures</Text>
+            <Text weight={500}>SKMEI 1868 WATCH FOR MEN</Text>
             <Badge color="green" variant="light">
               On Sale
             </Badge>
           </Group>
-          <Group position="apart" mb="xs">
-            <Text weight={300}>$100</Text>
+          <Group mb="xs">
+            <Text weight={800}>RWF 80,000</Text>
+            <Text weight={400} size="xs" td="line-through">
+              RWF 100,000
+            </Text>
           </Group>
 
           <Text size="sm" color="dimmed">

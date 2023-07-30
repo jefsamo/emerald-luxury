@@ -127,6 +127,9 @@ export default function PlaceOrder() {
   const sendEmail = (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
+    if (!email && !name && !streetAddress && !phoneNumber && !city && !province)
+      return;
+
     emailjs
       .sendForm(VITE_SERVICE_ID, VITE_TEMPLATE_ID, form.current!, VITE_ID)
       .then(
