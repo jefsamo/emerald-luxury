@@ -8,6 +8,8 @@ import {
   SimpleGrid,
   createStyles,
   rem,
+  Select,
+  NumberInput,
 } from "@mantine/core";
 import { ContactIconsList } from "./ContactIcons";
 import bg from "./bg.svg";
@@ -116,34 +118,54 @@ export default function PlaceOrder() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [city, setCity] = useState("");
   const [province, setProvince] = useState("");
+  const [numberOfProducts, setNumberOfProducts] = useState<number | "">(0);
+
+  const [value, setValue] = useState<string | null>(null);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const { VITE_SERVICE_ID, VITE_TEMPLATE_ID, VITE_ID } = import.meta.env;
 
   const form = useRef<HTMLFormElement | null>(null);
 
-  const notify = () => toast("Order placed successfully");
+  const notify = (message: string) => toast(message);
+
+  const send = async () => {
+    setIsLoading(true);
+    try {
+      await emailjs.sendForm(
+        VITE_SERVICE_ID,
+        VITE_TEMPLATE_ID,
+        form.current!,
+        VITE_ID
+      );
+      setIsLoading(false);
+      notify("Order placed successfully 😊");
+      setName("");
+      setEmail("");
+      setStreetAddress("");
+      setPhoneNumber("");
+      setCity("");
+      setProvince("");
+      setNumberOfProducts(0);
+    } catch (error) {
+      console.log(error);
+      notify("There was a problem placing your order 😔");
+      setName("");
+      setEmail("");
+      setStreetAddress("");
+      setPhoneNumber("");
+      setCity("");
+      setProvince("");
+      setNumberOfProducts(0);
+    }
+  };
   const sendEmail = (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
     if (!email && !name && !streetAddress && !phoneNumber && !city && !province)
       return;
-
-    emailjs
-      .sendForm(VITE_SERVICE_ID, VITE_TEMPLATE_ID, form.current!, VITE_ID)
-      .then(
-        () => {
-          notify();
-          setName("");
-          setEmail("");
-          setStreetAddress("");
-          setPhoneNumber("");
-          setCity("");
-          setProvince("");
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+    send();
   };
 
   return (
@@ -221,8 +243,8 @@ export default function PlaceOrder() {
                 onChange={(e) => setCity(e.target.value)}
               />
               <TextInput
-                label="Province"
-                placeholder="Province"
+                label="Region"
+                placeholder="Region"
                 name="province"
                 required
                 style={{
@@ -231,11 +253,40 @@ export default function PlaceOrder() {
                 value={province}
                 onChange={(e) => setProvince(e.target.value)}
               />
+              <NumberInput
+                label="Number of Products"
+                placeholder="Number of Products"
+                name="numberOfProducts"
+                required
+                style={{
+                  textAlign: "left",
+                }}
+                max={120}
+                min={0}
+                value={numberOfProducts}
+                onChange={setNumberOfProducts}
+              />
+              <Select
+                label="Day of delivery"
+                placeholder="Pick one"
+                required
+                name="deliveryDate"
+                style={{
+                  textAlign: "left",
+                }}
+                data={[
+                  { value: "today", label: "Today" },
+                  { value: "tomorrow", label: "Tomorrow" },
+                  { value: "day after tomorrow", label: "Day after tomorrow" },
+                ]}
+                value={value}
+                onChange={setValue}
+              />
             </SimpleGrid>
 
             <Group position="right" mt="md">
               <Button type="submit" className={classes.control}>
-                Order Now
+                {isLoading ? "Loading..." : "Order Now"}
               </Button>
             </Group>
           </div>
