@@ -9,11 +9,10 @@ import {
   createStyles,
   rem,
   Select,
-  NumberInput,
 } from "@mantine/core";
 import { ContactIconsList } from "./ContactIcons";
 import bg from "./bg.svg";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import toast, { Toaster } from "react-hot-toast";
 
