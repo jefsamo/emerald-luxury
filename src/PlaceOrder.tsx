@@ -13,7 +13,7 @@ import {
 } from "@mantine/core";
 import { ContactIconsList } from "./ContactIcons";
 import bg from "./bg.svg";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -119,7 +119,6 @@ export default function PlaceOrder() {
   const [city, setCity] = useState("");
   const [province, setProvince] = useState("");
   const [numberOfProducts, setNumberOfProducts] = useState<number | "">(0);
-
   const [value, setValue] = useState<string | null>(null);
 
   const [isLoading, setIsLoading] = useState(false);
@@ -253,7 +252,7 @@ export default function PlaceOrder() {
                 value={province}
                 onChange={(e) => setProvince(e.target.value)}
               />
-              <NumberInput
+              <TextInput
                 label="Number of Products"
                 placeholder="Number of Products"
                 name="numberOfProducts"
@@ -264,7 +263,7 @@ export default function PlaceOrder() {
                 max={120}
                 min={0}
                 value={numberOfProducts}
-                onChange={setNumberOfProducts}
+                onChange={(e) => setNumberOfProducts(+e.target.value)}
               />
               <Select
                 label="Day of delivery"
