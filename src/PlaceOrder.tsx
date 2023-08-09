@@ -117,7 +117,7 @@ export default function PlaceOrder() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [city, setCity] = useState("");
   const [province, setProvince] = useState("");
-  const [numberOfProducts, setNumberOfProducts] = useState<number | "">(0);
+  const [numberOfProducts, setNumberOfProducts] = useState<number>(0);
   const [value, setValue] = useState<string | null>(null);
 
   const [isLoading, setIsLoading] = useState(false);
@@ -140,6 +140,7 @@ export default function PlaceOrder() {
         form.current!,
         VITE_ID
       );
+      console.log(numberOfProducts, value);
       setIsLoading(false);
       notify("Order placed successfully", "✅");
       setName("");
@@ -165,7 +166,15 @@ export default function PlaceOrder() {
   const sendEmail = (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
-    if (!email && !name && !streetAddress && !phoneNumber && !city && !province)
+    if (
+      !email &&
+      !name &&
+      !streetAddress &&
+      !phoneNumber &&
+      !city &&
+      !province &&
+      !numberOfProducts
+    )
       return;
     send();
   };
@@ -288,7 +297,7 @@ export default function PlaceOrder() {
 
             <Group position="right" mt="md">
               <Button type="submit" className={classes.control}>
-                {isLoading ? "Loading..." : "Order Now"}
+                {isLoading ? "Sending..." : "Order Now"}
               </Button>
             </Group>
           </div>
