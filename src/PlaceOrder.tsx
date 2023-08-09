@@ -126,7 +126,10 @@ export default function PlaceOrder() {
 
   const form = useRef<HTMLFormElement | null>(null);
 
-  const notify = (message: string) => toast(message);
+  const notify = (message: string, icon: string) =>
+    toast(message, {
+      icon,
+    });
 
   const send = async () => {
     setIsLoading(true);
@@ -138,7 +141,7 @@ export default function PlaceOrder() {
         VITE_ID
       );
       setIsLoading(false);
-      notify("Order placed successfully 😊");
+      notify("Order placed successfully", "✅");
       setName("");
       setEmail("");
       setStreetAddress("");
@@ -148,7 +151,8 @@ export default function PlaceOrder() {
       setNumberOfProducts(0);
     } catch (error) {
       console.log(error);
-      notify("There was a problem placing your order 😔");
+      notify("There was a problem placing your order", "❌");
+      setIsLoading(false);
       setName("");
       setEmail("");
       setStreetAddress("");
