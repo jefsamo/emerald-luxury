@@ -123,7 +123,6 @@ export default function PlaceOrder() {
   const [isLoading, setIsLoading] = useState(false);
 
   const { VITE_SERVICE_ID, VITE_TEMPLATE_ID, VITE_ID } = import.meta.env;
-  console.log(VITE_SERVICE_ID, VITE_ID, VITE_TEMPLATE_ID);
 
   const form = useRef<HTMLFormElement | null>(null);
 
@@ -141,7 +140,6 @@ export default function PlaceOrder() {
         form.current!,
         VITE_ID
       );
-      console.log(numberOfProducts, value);
       setIsLoading(false);
       notify("Order placed successfully", "✅");
       setName("");
