@@ -7,6 +7,7 @@ function Home() {
   const navigate = useNavigate();
 
   function handleClick() {
+    // navigate
     navigate("/order");
   }
   return (
