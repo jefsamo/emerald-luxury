@@ -12,6 +12,7 @@
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
     "@emotion/react": "^11.11.1",
+    "@mantine/carousel": "^6.0.19",
     "@mantine/core": "^6.0.15",
     "@mantine/dates": "^6.0.15",
     "@mantine/ds": "^6.0.15",
@@ -20,6 +21,7 @@
     "@tabler/icons-react": "^2.23.0",
     "axios": "^1.4.0",
     "dotenv": "^16.3.1",
+    "embla-carousel-autoplay": "^8.0.0-rc11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
