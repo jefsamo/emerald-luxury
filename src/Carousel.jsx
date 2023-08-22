@@ -1,22 +1,16 @@
 import { Carousel } from "@mantine/carousel";
 import { Image } from "@mantine/core";
-import Autoplay from "embla-carousel-autoplay";
-import { useRef } from "react";
 import second_image from "./assets/second_image.png";
 import first_image from "./assets/first_image.png";
 import third_image from "./assets/third_image.png";
 
 export default function Slider() {
-  const autoplay = useRef(Autoplay({ delay: 2000 }));
-  console.log(autoplay);
   return (
     <>
       <Carousel
         sx={{ maxWidth: 600 }}
         mx="auto"
         withIndicators
-        onMouseEnter={autoplay.current.stop}
-        onMouseLeave={autoplay.current.reset}
         styles={{
           control: {
             "&[data-inactive]": {
