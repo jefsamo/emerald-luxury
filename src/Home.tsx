@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import SS from "./assets/watch.jpeg";
-import { Card, Image, Text, Badge, Button, Group, Center } from "@mantine/core";
+import { Card, Text, Badge, Button, Group, Center } from "@mantine/core";
 import "./App.css";
 import Slider from "./Carousel";
 
@@ -21,12 +20,6 @@ function Home() {
           style={{ maxWidth: "500px" }}
         >
           <Card.Section>
-            {/* <Image
-              src={SS}
-              // height={180}
-              alt="Norway"
-              style={{ width: "100%", height: "auto" }}
-            /> */}
             <Slider />
           </Card.Section>
 
