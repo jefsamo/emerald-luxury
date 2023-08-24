@@ -4,7 +4,6 @@ import "./App.css";
 import Slider from "./Carousel";
 import { Image } from "@mantine/core";
 import pod from "./assets/pod.png";
-import warranty from "./assets/warranty.png";
 
 function Home() {
   const navigate = useNavigate();
@@ -66,7 +65,6 @@ function Home() {
       <Center mt={20}>
         <Group position="center">
           <Image src={pod} width={300} height={180} />
-          <Image src={warranty} width={300} height={180} />
         </Group>
       </Center>
     </>
