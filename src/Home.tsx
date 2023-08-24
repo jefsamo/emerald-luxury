@@ -2,6 +2,9 @@ import { useNavigate } from "react-router-dom";
 import { Card, Text, Badge, Button, Group, Center } from "@mantine/core";
 import "./App.css";
 import Slider from "./Carousel";
+import { Image } from "@mantine/core";
+import pod from "./assets/pod.png";
+import warranty from "./assets/warranty.png";
 
 function Home() {
   const navigate = useNavigate();
@@ -59,6 +62,12 @@ function Home() {
             </Button>
           </Group>
         </Card>
+      </Center>
+      <Center mt={20}>
+        <Group position="center">
+          <Image src={pod} width={200} height={120} />
+          <Image src={warranty} width={200} height={120} />
+        </Group>
       </Center>
     </>
   );
