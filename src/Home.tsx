@@ -65,8 +65,8 @@ function Home() {
       </Center>
       <Center mt={20}>
         <Group position="center">
-          <Image src={pod} width={200} height={120} />
-          <Image src={warranty} width={200} height={120} />
+          <Image src={pod} width={300} height={180} />
+          <Image src={warranty} width={300} height={180} />
         </Group>
       </Center>
     </>
