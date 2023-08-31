@@ -27,25 +27,29 @@ function Home() {
           </Card.Section>
 
           <Group position="apart" mt="md" mb="xs">
-            <Text weight={500}>SKEMI 1868 Water Resistant Watch</Text>
+            <Text weight={500}>BENYAR BY-5177 Water Resistant Watch</Text>
             <Badge color="green" variant="light">
               On Sale
             </Badge>
           </Group>
           <Group mb="xs">
-            <Text weight={800}>RWF 75,000</Text>
+            <Text weight={800}>RWF 80,000</Text>
             <Text weight={400} size="xs" td="line-through">
               RWF 100,000
             </Text>
           </Group>
 
           <Text size="sm" color="dimmed">
-            Your best option for the rugged periods. This 30M water resistant
-            watch features a dual timing functionality (analogue and digital)
-            with night vision lighting. The rectangular case is fabricated with
-            quality Stainless Steel and faceted at 12 and 6 to give enhanced
-            texture. To complete the classic sensibility of the design, a black
-            leather strap frames the case and is secured with a buckle.
+            The BENYAR 50M Water Resistant is your best option for all seasons
+            (in the rain and in the Sun). It’s 50m water resistant watch makes
+            it perfect to walk in the rain or take a deep shower. It’s perfect
+            for all kinds of everyday water impacts with night-vision handle
+            lightening. This watch has a 41mm dial which makes it the perfect
+            size and weight for your hands to exude class and optimal
+            performance. Made with pure and quality Stainless Steel to have the
+            perfect feel on your skin without any skin irritation. Most
+            importantly it comes with an ANTI-THEFT buckle that makes it
+            difficult for a snatch and grab during your walks.
           </Text>
 
           <Group position="center">

@@ -295,7 +295,11 @@ export default function PlaceOrder() {
             </SimpleGrid>
 
             <Group position="right" mt="md">
-              <Button type="submit" className={classes.control}>
+              <Button
+                type="submit"
+                className={classes.control}
+                loading={isLoading}
+              >
                 {isLoading ? "Sending..." : "Order Now"}
               </Button>
             </Group>
